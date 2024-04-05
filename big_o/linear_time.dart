@@ -3,7 +3,7 @@ import 'dart:core';
 void main() {
   var nemo = ['nemo'];
   var large = List.filled(10000, 'nemo');
-  print(findNemo(large));
+  print(findNemo(large)); // O(n) => Linear time.
 }
 
 findNemo(List array) {
