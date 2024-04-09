@@ -14,6 +14,7 @@ void main() {
   var array2 = ['z', 'y', 'x'];
 
   print(containsCommonItem(array1, array2));
+  print(containsCommonItem2(array1, array2));
 }
 
 // brute force approach.
@@ -28,3 +29,22 @@ bool containsCommonItem(List arr1, List arr2) {
   }
   return false;
 }
+
+bool containsCommonItem2(List arr1, List arr2) {
+// loop through first array and create object where properties === items in the array
+  // can we assume always 2 params?
+
+  var map = {};
+  for (int i = 0; i < arr1.length; i++) {
+    var item = arr1[i];
+    map[item] = true;
+  }
+
+  // loop through second array and check if item in second array exists on created object.
+  for (int j = 0; j < arr2.length; j++) {
+    if (map.containsKey(arr2[j]) && map[arr2[j]] == true) {
+      return true;
+    }
+  }
+  return false;
+}  // O(a + b) Time Complexity
